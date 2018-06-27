@@ -85,6 +85,11 @@ public class ProductimageController{
         return "redirect:/admin_productImage_list?pid="+pid;
     }
 
+    /**
+     * 根据点击添加图片的type获取保存路径
+     * @param type
+     * @return
+     */
     public String getImgpath(String type){
         if(type.equals("type_single"))
             imgpath = "img/productSingle";
