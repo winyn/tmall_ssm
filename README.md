@@ -42,7 +42,7 @@
 - 产品管理中批量新增、批量编辑属性（一个新增的产品需要新增属性、已有的需要批量修改属性）
 
 ## 已解决的难点
-- 产品展示时如何加载第一张缩略图？
+### 产品展示时如何加载第一张缩略图？
 1. 给Product实体增加firstProductImage属性及get/set方法；
 `private Productimage firstProductImage;`
 2. ProductServiceImpl.java中定义bindImage()方法，调用产品图片ProductimageServiceImpl中的list，获取集合的首个Productimage实体；
@@ -55,7 +55,7 @@
         return product;
     }
 ```
-- 订单查询时如何显示“金额”、“商品数量”、“买家名称”等表里没有的字段？
+### 订单查询时如何显示“金额”、“商品数量”、“买家名称”等表里没有的字段？
 1. “买家名称”字段在User表，所以给Order实体增加User属性，在OrderService查询时调用setUser()方法，通过uid获取购买User；
 2. “商品数量”根据Orderitem中数量之和计算得到，而总“金额”需要每件产品的单价*购买数量，再计算所有之和。点击查看详情时需要展示产品，
 实体增加Product属性。在OrderController查询时调用OrderitemService的fill()方法，计算这个值。
